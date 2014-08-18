@@ -1,4 +1,5 @@
 require 'sass'
+require 'sassc'
 require 'benchmark'
 
 module Guard
@@ -80,7 +81,7 @@ module Guard
           :filesystem_importer => Importer,
         }.merge(options)
 
-        ::Sass::Engine.for_file(file, sass_options).render
+        ::SassC::Engine.new(file, sass_options).render
       end
 
       # @param file [String]
